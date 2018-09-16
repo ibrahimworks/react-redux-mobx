@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import singleton from './Mobxredux';
+import Tack from './MessageWithMobx';
 import { Provider } from 'mobx-react';
 import  Message  from './Message';
 import { observer } from 'mobx-react';
@@ -18,11 +18,11 @@ class App extends Component {
 
   render() {
     return (
-  <Provider BirdStore={singleton}>
+  <Provider Tack={Tack}>
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Nember of Message {singleton.messageCount}</h1>
+          <h1 className="App-title">Nember of Message {Tack.messageCount}</h1>
         </header>
         <div className="App-intro">
            <Message />

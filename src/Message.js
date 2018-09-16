@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 
-@inject('BirdStore')
+@inject('Tack')
 @observer
 export default class Message extends Component {
 
@@ -15,7 +15,7 @@ export default class Message extends Component {
 
       this.pushMessage = this.pushMessage.bind(this);
       this.handleChange = this.handleChange.bind(this);
-        this.BirdStore  = this.props.BirdStore;
+        this.Tack  = this.props.Tack;
     }
 
     handleChange(event) {
@@ -23,7 +23,7 @@ export default class Message extends Component {
      }
 
      pushMessage(){
-        this.BirdStore.addMessage(this.state.value);
+        this.Tack.addMessage(this.state.value);
         this.setState({value: ''});
 
      }
@@ -34,7 +34,7 @@ export default class Message extends Component {
     return(
        <div>
            <section >
-              <ul>{this.BirdStore.messages.map((message,index) => <li key={index}>{message}</li>)}</ul>
+              <ul>{this.Tack.messages.map((message,index) => <li key={index}>{message}</li>)}</ul>
            </section>
            <div>
               <input type="text" value={this.state.value}  onChange={this.handleChange} />
